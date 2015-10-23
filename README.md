@@ -13,7 +13,7 @@ $ echo "hello: world" | yj
 
 ## Why?
 
-Sometimes I have config files in yaml and I want to access them easily via some bash script. `yj` in conjunction with (`jq`)[https://stedolan.github.io/jq/] allows me to do this. `yj` is written in golang which allow me to easily distribute/download static binaries instead of fussing with trying to install ruby/python/perl dependencies.
+Sometimes I have config files in yaml and I want to access them easily via some bash script. `yj` in conjunction with [`jq`](https://stedolan.github.io/jq/) allows me to do this. `yj` is written in golang which allow me to easily distribute/download static binaries instead of fussing with trying to install ruby/python/perl dependencies.
 
 
 ```sh
