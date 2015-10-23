@@ -2,11 +2,11 @@ package main
 
 import (
 	//"bufio"
-	"io/ioutil"
-	"fmt"
-	"os"
-	"gopkg.in/coryb/yaml.v2"
 	"encoding/json"
+	"fmt"
+	"gopkg.in/coryb/yaml.v2"
+	"io/ioutil"
+	"os"
 )
 
 func yamlFixup(data interface{}) (interface{}, error) {
@@ -63,7 +63,7 @@ func main() {
 	// reader := bufio.NewReader(os.Stdin)
 	in, err := ioutil.ReadAll(os.Stdin)
 	if err != nil {
-		fmt.Printf("Failed to read from STDIN: %s\n", err);
+		fmt.Printf("Failed to read from STDIN: %s\n", err)
 		os.Exit(1)
 	}
 	var data interface{}
@@ -76,7 +76,7 @@ func main() {
 		fmt.Printf("Failed to prepare YAML data for JSON: %s\n", err)
 		os.Exit(1)
 	}
-	if out,err := json.MarshalIndent(fixed, "", "  "); err != nil {
+	if out, err := json.MarshalIndent(fixed, "", "  "); err != nil {
 		fmt.Printf("Failed to create JSON from %v: %s\n", data, err)
 		os.Exit(1)
 	} else {
