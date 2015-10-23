@@ -80,6 +80,6 @@ func main() {
 		fmt.Printf("Failed to create JSON from %v: %s\n", data, err)
 		os.Exit(1)
 	} else {
-		fmt.Print(string(out))
+		fmt.Println(string(out))
 	}
 }
