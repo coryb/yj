@@ -49,7 +49,7 @@ NEWVER ?= $(shell echo $(CURVER) | awk -F. '{print $$1"."$$2"."$$3+1}')
 TODAY  := $(shell date +%Y-%m-%d)
 
 changes:
-	@git log --pretty=format:"* %s [%cn] [%h]" --no-merges ^$(CURVER) HEAD jira | grep -v gofmt | grep -v "bump version"
+	@git log --pretty=format:"* %s [%cn] [%h]" --no-merges ^$(CURVER) HEAD yj.go | grep -v gofmt
 
 update-changelog: 
 	@echo "# Changelog" > CHANGELOG.md.new; \
@@ -62,8 +62,6 @@ update-changelog:
 	tail +2 CHANGELOG.md >> CHANGELOG.md.new; \
 	mv CHANGELOG.md.new CHANGELOG.md; \
 	git commit -m "Updated Changelog" CHANGELOG.md; \
-	perl -pi -e "s/version: $(CURVER)/version: $(NEWVER)/" jira/main.go; \
-	git commit -m "bump version" jira/main.go; \
 	git tag $(NEWVER)
 
 clean:
